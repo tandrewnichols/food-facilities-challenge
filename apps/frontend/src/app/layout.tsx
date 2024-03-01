@@ -1,5 +1,4 @@
-import './global.css';
-import '@tailwind/styles';
+import '@tailwind/styles.css';
 
 export const metadata = {
   title: 'Food Facilities Challenge',
