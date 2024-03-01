@@ -1,4 +1,5 @@
 import '@tailwind/styles.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 export const metadata = {
   title: 'Food Facilities Challenge',
