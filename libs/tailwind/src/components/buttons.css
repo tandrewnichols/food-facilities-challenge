@@ -1,0 +1,78 @@
+@layer components {
+  .btn {
+    @apply px-6 py-2 w-auto rounded text-center cursor-pointer;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-thin {
+    @apply px-6 py-1;
+  }
+
+  .btn-narrow {
+    @apply px-4 py-2;
+  }
+
+  .btn-shadow {
+    @apply shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white border border-primary;
+    @apply hover:bg-primary-light hover:border-primary-light;
+  }
+
+  .btn-outline-primary {
+    @apply bg-transparent text-primary border border-primary;
+    @apply hover:text-white hover:bg-primary hover:border-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white border border-secondary;
+    @apply hover:bg-secondary-dark hover:border-secondary-dark;
+  }
+
+  .btn-outline-secondary {
+    @apply bg-transparent text-secondary border border-secondary;
+    @apply hover:text-white hover:bg-secondary hover:border-secondary;
+  }
+
+  .btn-tertiary {
+    @apply bg-tertiary text-white border border-tertiary;
+    @apply hover:bg-tertiary-dark hover:border-tertiary-dark;
+  }
+
+  .btn-outline-tertiary {
+    @apply bg-transparent text-tertiary border border-tertiary;
+    @apply hover:text-white hover:bg-tertiary hover:border-tertiary;
+  }
+
+  .btn-success {
+    @apply bg-success text-white border border-success;
+    @apply hover:bg-success-dark hover:border-success-dark;
+  }
+
+  .btn-outline-success {
+    @apply bg-transparent text-success border border-success;
+    @apply hover:text-white hover:bg-success hover:border-success;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-white border border-danger;
+    @apply hover:bg-danger-dark hover:border-danger-dark;
+  }
+
+  .btn-outline-danger {
+    @apply bg-transparent text-danger border border-danger;
+    @apply hover:text-white hover:bg-danger hover:border-danger;
+  }
+
+  .btn-warning {
+    @apply bg-warning text-black border border-warning;
+    @apply hover:bg-warning-light hover:border-warning-light;
+  }
+
+  .btn-outline-warning {
+    @apply bg-transparent text-black border border-warning;
+    @apply hover:bg-warning hover:border-warning;
+  }
+}

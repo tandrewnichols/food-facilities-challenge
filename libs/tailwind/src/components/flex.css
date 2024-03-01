@@ -1,0 +1,33 @@
+@layer components {
+  .row {
+    @apply flex flex-row mt-4;
+  }
+
+  .col {
+    @apply flex flex-col;
+  }
+
+  .row-x {
+    @apply flex flex-row justify-center;
+  }
+
+  .row-y {
+    @apply flex flex-row items-center;
+  }
+
+  .row-xy {
+    @apply flex flex-row justify-center items-center;
+  }
+
+  .col-x {
+    @apply flex flex-col justify-center;
+  }
+
+  .col-y {
+    @apply flex flex-col items-center;
+  }
+
+  .col-xy {
+    @apply flex flex-col justify-center items-center;
+  }
+}

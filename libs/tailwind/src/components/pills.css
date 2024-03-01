@@ -1,0 +1,53 @@
+@layer components {
+  .pill {
+    @apply rounded px-2 text-sm flex items-center justify-center;
+  }
+
+  .pill-primary {
+    @apply bg-primary border border-primary text-white;
+  }
+
+  .pill-outline-primary {
+    @apply bg-transparent border border-primary text-primary;
+  }
+
+  .pill-secondary {
+    @apply bg-secondary border border-secondary text-white;
+  }
+
+  .pill-outline-secondary {
+    @apply bg-transparent border border-secondary text-secondary;
+  }
+
+  .pill-tertiary {
+    @apply bg-tertiary border border-tertiary text-white;
+  }
+
+  .pill-outline-tertiary {
+    @apply bg-transparent border border-tertiary text-tertiary;
+  }
+
+  .pill-success {
+    @apply bg-success border border-success text-white;
+  }
+
+  .pill-outline-success {
+    @apply bg-transparent border border-success text-success;
+  }
+
+  .pill-danger {
+    @apply bg-danger border border-danger text-white;
+  }
+
+  .pill-outline-danger {
+    @apply bg-transparent border border-danger text-danger;
+  }
+
+  .pill-warning {
+    @apply bg-warning border border-warning text-white;
+  }
+
+  .pill-outline-warning {
+    @apply bg-transparent border border-warning text-warning;
+  }
+}

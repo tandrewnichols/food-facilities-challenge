@@ -1,0 +1,29 @@
+@layer components {
+  .menu-wrapper {
+    @apply h-full w-full relative;
+  }
+
+  .menu {
+    @apply h-full w-full flex flex-row justify-center items-center cursor-pointer;
+  }
+
+  .dropdown-menu {
+    @apply absolute rounded bg-white border border-gray-300 z-10 text-left top-full mt-3 w-full;
+  }
+
+  .menu-right {
+    @apply right-0;
+  }
+
+  .menu-left {
+    @apply left-0;
+  }
+
+  .menu-item {
+    @apply hover:bg-primary hover:text-white py-1 cursor-pointer;
+  }
+
+  .menu-item-danger {
+    @apply hover:bg-danger hover:text-white py-2 cursor-pointer;
+  }
+}

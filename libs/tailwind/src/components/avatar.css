@@ -1,0 +1,13 @@
+@layer components {
+  .avatar {
+    @apply rounded-full h-16 w-16 flex items-center justify-center bg-cover bg-center;
+  }
+
+  .avatar-sm {
+    @apply rounded-full h-8 w-8 flex items-center justify-center bg-cover bg-center;
+  }
+
+  .avatar-xs {
+    @apply rounded-full h-4 w-4 flex items-center justify-center bg-cover bg-center;
+  }
+}

@@ -1,0 +1,15 @@
+@layer utilities {
+  .full {
+    height: 100%;
+    width: 100%;
+  }
+
+  .row-borders {
+    & th {
+      @apply border-b-2 border-gray-500;
+    }
+    & tr {
+      @apply border-b border-gray-400;
+    }
+  }
+}

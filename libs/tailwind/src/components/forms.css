@@ -1,0 +1,12 @@
+@layer components {
+  .form-control {
+    @apply w-full rounded py-2 px-4 border border-gray-300;
+  }
+  .form-control:focus {
+    box-shadow: 0 0 5px rgba(54, 166, 231, 1);
+    @apply outline-none;
+  }
+  button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}

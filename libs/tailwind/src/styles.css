@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+SC:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Upright:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700&display=swap');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './base';
+@import './components';
+@import './utilities';
