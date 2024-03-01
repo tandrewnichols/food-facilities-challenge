@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@logger/*": ["libs/logger/src/*"],
       "@tailwind/*": ["libs/tailwind/src/*"]
     }
   },
