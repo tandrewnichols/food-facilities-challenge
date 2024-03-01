@@ -1,8 +1,0 @@
-{
-  "name": "food-facilities-challenge",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/food-facilities-challenge",
-  "projectType": "application",
-  "targets": {},
-  "tags": []
-}
