@@ -31,6 +31,9 @@ module.exports = {
       },
       transitionProperty: {
         m: 'margin'
+      },
+      fontSize: {
+        '2xs': '0.6rem'
       }
     },
     fontFamily: {

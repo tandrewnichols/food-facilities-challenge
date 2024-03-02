@@ -13,7 +13,8 @@ const nextConfig = {
     svgr: false,
   },
   transpilePackages:  [
-    '@components'
+    '@components',
+    '@hooks'
   ]
 };
 

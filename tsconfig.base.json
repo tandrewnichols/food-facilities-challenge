@@ -18,8 +18,10 @@
     "jsx": "react-jsx",
     "paths": {
       "@components/*": ["libs/components/src/*"],
+      "@hooks/*": ["libs/hooks/src/*"],
       "@logger/*": ["libs/logger/src/*"],
-      "@tailwind/*": ["libs/tailwind/src/*"]
+      "@tailwind/*": ["libs/tailwind/src/*"],
+      "@sharedTypes/*": ["libs/types/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
