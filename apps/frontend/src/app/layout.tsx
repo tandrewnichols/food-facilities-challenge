@@ -10,6 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/radai.jpeg" sizes="any" />
+      </head>
       <body>
         <Nav />
         {children}
