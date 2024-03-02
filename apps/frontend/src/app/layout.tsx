@@ -1,5 +1,6 @@
-import '@tailwind/styles.css';
+import './styles.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import Nav from '@components/navbar/nav';
 
 export const metadata = {
   title: 'Food Facilities Challenge',
@@ -9,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }

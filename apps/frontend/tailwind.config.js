@@ -8,6 +8,10 @@ module.exports = {
       __dirname,
       '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
+    path.join(
+      __dirname,
+      '../../libs/components/src/**/*!(*.stories|*.spec).{ts,tsx,html}'
+    )
   ],
   ...baseConfig
 };
