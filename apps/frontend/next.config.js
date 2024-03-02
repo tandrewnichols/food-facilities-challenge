@@ -14,7 +14,8 @@ const nextConfig = {
   },
   transpilePackages:  [
     '@components',
-    '@hooks'
+    '@hooks',
+    '@api'
   ]
 };
 

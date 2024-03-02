@@ -1,4 +1,4 @@
-import Search from './components/search';
+import Search from './search';
 
 export default async function Page() {
   return (

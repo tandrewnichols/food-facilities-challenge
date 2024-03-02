@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import startCase from 'lodash/startCase';
 import { useInOutTransition } from '@hooks/utils';
 
@@ -18,6 +19,7 @@ export default function TextInput({
   onFocus,
   onBlur,
   onChange,
+  icon,
   label = startCase(name),
 }: Props) {
   const [
@@ -74,6 +76,11 @@ export default function TextInput({
         onBlur={handleBlur}
         onChange={onChange}
       />
+      {icon && (
+        <div className="absolute pointer-events-none row-y inset-y-0 right-0 pr-4">
+          <Icon icon={icon} className="text-gray-800" />
+        </div>
+      )}
     </div>
   );
 }
