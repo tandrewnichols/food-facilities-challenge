@@ -17,8 +17,9 @@
     "baseUrl": ".",
     "jsx": "react-jsx",
     "paths": {
-      "@components/*": ["libs/components/src/*"],
       "@api/*": ["libs/api/src/*"],
+      "@components/*": ["libs/components/src/*"],
+      "@utils/*": ["libs/utils/src/*"],
       "@hooks/*": ["libs/hooks/src/*"],
       "@logger/*": ["libs/logger/src/*"],
       "@sharedTypes/*": ["libs/types/src/*"],

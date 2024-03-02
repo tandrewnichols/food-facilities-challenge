@@ -1,7 +1,7 @@
 import app from './app';
 import logger from '@logger/logger';
 
-const port = process.env.PORT || 3333;
+const port = process.env.API_PORT || 4000;
 
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
