@@ -21,5 +21,13 @@ const sql = postgres({
     CREATE EXTENSION IF NOT EXISTS pgcrypto
   `;
 
+  await sql`
+    CREATE EXTENSION IF NOT EXISTS cube
+  `;
+
+  await sql`
+    CREATE EXTENSION IF NOT EXISTS earthdistance
+  `;
+
   await sql.end();
 })();
