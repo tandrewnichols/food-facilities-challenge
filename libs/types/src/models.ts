@@ -30,7 +30,7 @@ export interface Candidate {
   long: string;
   schedule: string;
   daysHours?: string;
-  NOISent: string;
+  NOISent?: string;
   approvedTimestamp?: string;
   received: string;
   priorPermit: boolean;

@@ -19,11 +19,12 @@
     "paths": {
       "@api/*": ["libs/api/src/*"],
       "@components/*": ["libs/components/src/*"],
-      "@utils/*": ["libs/utils/src/*"],
+      "@food-facilities-challenge/db": ["libs/db/src/index.ts"],
       "@hooks/*": ["libs/hooks/src/*"],
       "@logger/*": ["libs/logger/src/*"],
       "@sharedTypes/*": ["libs/types/src/*"],
-      "@tailwind/*": ["libs/tailwind/src/*"]
+      "@tailwind/*": ["libs/tailwind/src/*"],
+      "@utils/*": ["libs/utils/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
