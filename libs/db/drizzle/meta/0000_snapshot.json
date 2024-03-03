@@ -1,0 +1,331 @@
+{
+  "id": "fd9521d1-4781-4383-9718-c1626c937c36",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "facilities": {
+      "name": "facilities",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "applicant": {
+          "name": "applicant",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "facility_type",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cnn": {
+          "name": "cnn",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "applicant_idx": {
+          "name": "applicant_idx",
+          "columns": [
+            "applicant"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "locations": {
+      "name": "locations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "facility_id": {
+          "name": "facility_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "location_id": {
+          "name": "location_id",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "address": {
+          "name": "address",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "block_lot": {
+          "name": "block_lot",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "block": {
+          "name": "block",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lot": {
+          "name": "lot",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "food_items": {
+          "name": "food_items",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "x": {
+          "name": "x",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "y": {
+          "name": "y",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "latitude": {
+          "name": "latitude",
+          "type": "numeric(8, 6)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "longitude": {
+          "name": "longitude",
+          "type": "numeric(9, 6)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "location": {
+          "name": "location",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "schedule": {
+          "name": "schedule",
+          "type": "varchar(400)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "days_hours": {
+          "name": "days_hours",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fire_prevention_districts": {
+          "name": "fire_prevention_districts",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "police_districts": {
+          "name": "police_districts",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "supervisor_districts": {
+          "name": "supervisor_districts",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zip_codes": {
+          "name": "zip_codes",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "neighborhoods_old": {
+          "name": "neighborhoods_old",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "faclity_id_idx": {
+          "name": "faclity_id_idx",
+          "columns": [
+            "facility_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "locations_facility_id_facilities_id_fk": {
+          "name": "locations_facility_id_facilities_id_fk",
+          "tableFrom": "locations",
+          "tableTo": "facilities",
+          "columnsFrom": [
+            "facility_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "permits": {
+      "name": "permits",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "location_id": {
+          "name": "location_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "permit": {
+          "name": "permit",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "permit_status",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "noi_sent": {
+          "name": "noi_sent",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approved_at": {
+          "name": "approved_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "received_at": {
+          "name": "received_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prior_permit": {
+          "name": "prior_permit",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "expiration_date": {
+          "name": "expiration_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "location_id_idx": {
+          "name": "location_id_idx",
+          "columns": [
+            "location_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "permits_location_id_locations_id_fk": {
+          "name": "permits_location_id_locations_id_fk",
+          "tableFrom": "permits",
+          "tableTo": "locations",
+          "columnsFrom": [
+            "location_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "permits_location_id_unique": {
+          "name": "permits_location_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "location_id"
+          ]
+        }
+      }
+    }
+  },
+  "enums": {
+    "facility_type": {
+      "name": "facility_type",
+      "values": {
+        "Truck": "Truck",
+        "Push Cart": "Push Cart"
+      }
+    },
+    "permit_status": {
+      "name": "permit_status",
+      "values": {
+        "APPROVED": "APPROVED",
+        "REQUESTED": "REQUESTED",
+        "EXPIRED": "EXPIRED",
+        "ISSUED": "ISSUED",
+        "SUSPEND": "SUSPEND"
+      }
+    }
+  },
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

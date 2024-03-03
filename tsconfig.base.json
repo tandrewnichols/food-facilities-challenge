@@ -19,7 +19,7 @@
     "paths": {
       "@api/*": ["libs/api/src/*"],
       "@components/*": ["libs/components/src/*"],
-      "@food-facilities-challenge/db": ["libs/db/src/index.ts"],
+      "@db/*": ["libs/db/src/*"],
       "@hooks/*": ["libs/hooks/src/*"],
       "@logger/*": ["libs/logger/src/*"],
       "@sharedTypes/*": ["libs/types/src/*"],

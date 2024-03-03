@@ -1,7 +1,11 @@
 import { pgTable, uuid, varchar, pgEnum, index } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
+import { FacilityType } from '@sharedTypes/models';
 
-export const facilityType = pgEnum('facility_type', ['Truck', 'Push Cart']);
+// I don't love how typescript makes you do this, but at least
+// I'm only defining the possible values in one place
+const facilityTypeValues = Object.values(FacilityType);
+export const facilityType = pgEnum('facility_type', [facilityTypeValues[0], ...facilityTypeValues.slice(1)]);
 
 export const facilities = pgTable('facilities', {
   id: uuid('id').default(sql`gen_random_uuid()`).primaryKey(),

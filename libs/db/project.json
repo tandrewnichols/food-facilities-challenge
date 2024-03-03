@@ -13,6 +13,55 @@
         "tsConfig": "libs/db/tsconfig.lib.json",
         "assets": ["libs/db/*.md"]
       }
+    },
+    "migrations": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "dev",
+      "options": {
+        "cwd": "libs/db",
+        "root": "libs/db",
+        "parallel": false
+      },
+      "configurations": {
+        "dev": {
+          "commands": [
+            "npx drizzle-kit generate:pg",
+            "npx tsx src/migrate.ts"
+          ]
+        }
+      }
+    },
+    "seed": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "dev",
+      "options": {
+        "cwd": "libs/db",
+        "root": "libs/db",
+        "parallel": false
+      },
+      "configurations": {
+        "dev": {
+          "commands": [
+            "npx tsx src/seed.ts"
+          ]
+        }
+      }
+    },
+    "initialize": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "dev",
+      "options": {
+        "cwd": "libs/db",
+        "root": "libs/db",
+        "parallel": false
+      },
+      "configurations": {
+        "dev": {
+          "commands": [
+            "npx tsx src/initialize.ts"
+          ]
+        }
+      }
     }
   },
   "tags": []
