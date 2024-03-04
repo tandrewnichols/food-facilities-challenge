@@ -8,6 +8,7 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "rootDir": ".",
         "outputPath": "dist/libs/middleware",
         "main": "libs/middleware/src/index.ts",
         "tsConfig": "libs/middleware/tsconfig.lib.json",

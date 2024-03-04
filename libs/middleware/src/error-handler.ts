@@ -17,8 +17,8 @@ export enum ErrorMessages {
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 export const handleError = (err: Error, req: Request, res: Response, next: NextFunction) => {
   try {
-    let status = 500;
-    let message: string;
+    let status = (err as HttpError).status || HttpStatusCode.InternalServerError;
+    let message = err.message || ErrorMessages.INTERNAL_SERVER_ERROR;
     let debugInfo = {};
 
     if (err instanceof ZodError) {
@@ -39,9 +39,6 @@ export const handleError = (err: Error, req: Request, res: Response, next: NextF
         status = HttpStatusCode.ServiceUnavailable;
         message = 'Service Unavailable';
       }
-    } else {
-      status = (err as HttpError).status || HttpStatusCode.InternalServerError;
-      message = err.message || ErrorMessages.INTERNAL_SERVER_ERROR;
     }
 
     const { expose = process.env.EXPOSE_DEBUG_INFO, ...errProps } = err instanceof AxiosError ? {} : err as HttpError;
