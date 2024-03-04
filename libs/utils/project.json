@@ -13,6 +13,27 @@
         "tsConfig": "libs/utils/tsconfig.lib.json",
         "assets": ["libs/utils/*.md"]
       }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "{projectRoot}/jest.config.ts",
+        "passWithNoTest": true,
+        "coverageDirectory": "./coverage/{projectRoot}"
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "coverage": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "open coverage/{projectRoot}/lcov-report/index.html"
+      }
     }
   },
   "tags": []

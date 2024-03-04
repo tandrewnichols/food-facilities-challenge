@@ -21,11 +21,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/{projectRoot}"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/backend/jest.config.ts",
+        "jestConfig": "{projectRoot}/jest.config.ts",
         "passWithNoTest": true,
-        "coverageDirectory": "./coverage/apps/backend"
+        "coverageDirectory": "./coverage/{projectRoot}"
       },
       "configurations": {
         "ci": {
@@ -37,7 +37,7 @@
     "coverage": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "open coverage/apps/backend/lcov-report/index.html"
+        "command": "open coverage/{projectRoot}/lcov-report/index.html"
       }
     }
   },

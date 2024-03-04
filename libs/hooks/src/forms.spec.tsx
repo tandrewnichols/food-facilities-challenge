@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { shallow } from 'enzyme';
-import { Keys } from '@ui-types/utils';
+import { Keys } from '@sharedTypes/components';
 import { when } from 'jest-when';
 import { useFieldState, useArrowSelection } from './forms';
 
@@ -11,7 +11,7 @@ jest.mock('react', () => ({
 
 describe('forms', () => {
   let Component : React.FC;
-  const InnerComponent = (props) => <div />;
+  const InnerComponent = (props: any) => <div />;
 
   describe('useFieldState', () => {
     beforeEach(() => {

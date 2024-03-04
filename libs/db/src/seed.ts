@@ -5,19 +5,20 @@ import { locations, NewLocation, permits, NewPermit } from './schemas';
 import { PermitStatus } from '@sharedTypes/models';
 
 const getPermitStatus = (status: string) => {
-  if (status === 'APPROVED') {
-    return PermitStatus.APPROVED;
-  } else if (status === 'REQUESTED') {
-    return PermitStatus.REQUESTED;
-  } else if (status === 'SUSPEND') {
-    return PermitStatus.SUSPENDED;
-  } else if (status === 'EXPIRED') {
-    return PermitStatus.EXPIRED;
-  } else if (status === 'ISSUED') {
-    return PermitStatus.ISSUED;
+  switch (status) {
+    case 'APPROVED':
+      return PermitStatus.APPROVED;
+    case 'REQUESTED':
+      return PermitStatus.REQUESTED;
+    case 'SUSPEND':
+      return PermitStatus.SUSPENDED;
+    case 'EXPIRED':
+      return PermitStatus.EXPIRED;
+    case 'ISSUED':
+      return PermitStatus.ISSUED;
+    default:
+      return undefined;
   }
-
-  return undefined;
 };
 
 (async () => {

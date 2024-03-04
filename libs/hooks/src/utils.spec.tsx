@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { shallow } from 'enzyme';
-import { wait } from '@helpers/utils';
 import {
   useHover,
   useToggle,
@@ -16,6 +15,8 @@ jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useEffect: jest.fn(),
 }));
+
+const wait = (millis: number) => new Promise((resolve) => setTimeout(resolve, millis));
 
 describe('utils', () => {
   let Component : React.FC;
