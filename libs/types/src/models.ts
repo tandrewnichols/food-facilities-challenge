@@ -11,34 +11,52 @@ export enum PermitStatus {
   SUSPENDED = 'SUSPEND'
 }
 
-export interface Candidate {
-  locationId: string;
+export interface Facility {
+  id: string;
   applicant: string;
-  facilityType?: FacilityType;
+  type?: FacilityType;
   cnn: string;
-  locationDescription?: string;
+}
+
+export interface Location {
+  id: string;
+  facilityId: string;
+  locationId: string;
+  description?: string;
   address: string;
-  blocklot?: string;
+  blockLot?: string;
   block?: string;
   lot?: string;
-  permit: string;
-  status?: PermitStatus;
   foodItems?: string;
   x?: string;
   y?: string;
-  lat: string;
-  long: string;
+  latitude: string;
+  longitude: string;
   schedule: string;
   daysHours?: string;
-  NOISent?: string;
-  approvedTimestamp?: string;
-  received: string;
-  priorPermit: boolean;
-  expirationTimestamp?: string;
   location: string;
   firePreventionDistricts?: string;
   policeDistricts?: string;
   supervisorDistricts?: string;
   zipCodes?: string;
   neighborhoodsOld?: string;
+  distance?: number;
+}
+
+export interface Permit {
+  id: string;
+  locationId: string;
+  permit: string;
+  status?: PermitStatus;
+  noiSent?: string;
+  approvedAt?: string;
+  receivedAt: string;
+  priorPermit: boolean;
+  expirationDate?: string;
+}
+
+export interface SearchResponse {
+  facility: Facility;
+  location: Location;
+  permit: Permit;
 }

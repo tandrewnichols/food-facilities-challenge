@@ -93,7 +93,7 @@ const getPermitStatus = (status: string) => {
         approvedAt: record.Approved ? new Date(record.Approved) : undefined,
         receivedAt: new Date(`${ year }-${ month }-${ day }`),
         priorPermit: record.PriorPermit === '1',
-        expirtationDate: record.ExpirationDate ? new Date(record.ExpirationDate) : undefined
+        expirationDate: record.ExpirationDate ? new Date(record.ExpirationDate) : undefined
       };
 
       await tx.insert(permits).values([permit]);

@@ -15,7 +15,7 @@ export const permits = pgTable('permits', {
   approvedAt: timestamp('approved_at', { withTimezone: false }),
   receivedAt: date('received_at', { mode: 'date' }).notNull(),
   priorPermit: boolean('prior_permit').notNull().default(false),
-  expirtationDate: timestamp('expiration_date', { withTimezone: false }),
+  expirationDate: timestamp('expiration_date', { withTimezone: false }),
 }, (permits) => ({
   locationIdIndex: uniqueIndex('location_id_idx').on(permits.locationId)
 }));

@@ -12,3 +12,9 @@ export enum Keys {
   ESC = 'Escape',
   TAB = 'Tab'
 }
+
+export enum SearchMode {
+  APPLICANT = 'Applicant',
+  ADDRESS = 'Address',
+  NEARBY = 'Nearby'
+}
