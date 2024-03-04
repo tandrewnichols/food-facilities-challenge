@@ -7,7 +7,7 @@ import {
   searchNearby,
   searchNearbySchema,
 } from './handlers/search';
-import { asyncHandler } from './middleware/async-handler';
+import { asyncHandler } from '@middleware/async-handler';
 
 const router = express.Router();
 
