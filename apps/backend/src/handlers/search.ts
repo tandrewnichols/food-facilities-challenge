@@ -1,9 +1,14 @@
 import { db } from '@db/db';
 import { facilities, permits, locations, Facility, Location, Permit } from '@db/schemas';
-import { like, ilike, sql, eq, and } from 'drizzle-orm';
+import { ilike, sql, eq, and } from 'drizzle-orm';
 import z from 'zod';
 import { PermitStatus } from '@sharedTypes/models';
 import { BaseRequest } from '@sharedTypes/request';
+
+const baseSchema = z.object({
+  get: z.function(),
+  logger: z.any()
+});
 
 type QueryResult = {
   facilities: Facility,
@@ -18,7 +23,7 @@ const mapResults = (results: QueryResult[]) =>
     permit: permits
   }));
 
-export const searchApplicantSchema = z.object({
+export const searchApplicantSchema = baseSchema.extend({
   params: z.object({}),
   body: z.object({}),
   query: z.object({
@@ -27,7 +32,7 @@ export const searchApplicantSchema = z.object({
   })
 });
 
-type SearchApplicantRequest = BaseRequest<typeof searchApplicantSchema>;
+export type SearchApplicantRequest = BaseRequest<typeof searchApplicantSchema>;
 
 export const searchApplicant = async (req: SearchApplicantRequest) => {
   const {
@@ -44,15 +49,15 @@ export const searchApplicant = async (req: SearchApplicantRequest) => {
     .from(facilities)
     .innerJoin(locations, eq(locations.facilityId, facilities.id))
     .innerJoin(permits, eq(permits.locationId, locations.id))
-    .limit(100)
-    .where(whereClause);
+    .where(whereClause)
+    .limit(100);
 
   // Could group these by applicant, but the frontend is going
   // to display them each separately anyway.
   return mapResults(results);
 };
 
-export const searchAddressSchema = z.object({
+export const searchAddressSchema = baseSchema.extend({
   params: z.object({}),
   body: z.object({}),
   query: z.object({
@@ -60,7 +65,7 @@ export const searchAddressSchema = z.object({
   })
 });
 
-type SearchAddressRequest = BaseRequest<typeof searchAddressSchema>;
+export type SearchAddressRequest = BaseRequest<typeof searchAddressSchema>;
 
 export const searchAddress = async (req: SearchAddressRequest) => {
   const {
@@ -71,13 +76,13 @@ export const searchAddress = async (req: SearchAddressRequest) => {
     .from(facilities)
     .innerJoin(locations, eq(locations.facilityId, facilities.id))
     .innerJoin(permits, eq(permits.locationId, locations.id))
-    .limit(100)
-    .where(ilike(locations.address, `%${ query }%`));
+    .where(ilike(locations.address, `%${ query }%`))
+    .limit(100);
 
   return mapResults(results);
 };
 
-export const searchNearbySchema = z.object({
+export const searchNearbySchema = baseSchema.extend({
   params: z.object({}),
   body: z.object({}),
   query: z.object({
@@ -86,7 +91,7 @@ export const searchNearbySchema = z.object({
   })
 });
 
-type SearchNearbyRequest = BaseRequest<typeof searchNearbySchema>;
+export type SearchNearbyRequest = BaseRequest<typeof searchNearbySchema>;
 
 export const searchNearby = async (req: SearchNearbyRequest) => {
   const {
@@ -182,7 +187,7 @@ export const searchNearby = async (req: SearchNearbyRequest) => {
       status: result.status,
       noiSent: result.noi_sent,
       approvedAt: result.approved_at,
-      received: result.received_at,
+      receivedAt: result.received_at,
       priorPermit: result.prior_permit,
       expirationDate: result.expiration_date,
     }

@@ -18,6 +18,27 @@
           "buildTarget": "backend:build:production"
         }
       }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/backend/jest.config.ts",
+        "passWithNoTest": true,
+        "coverageDirectory": "./coverage/apps/backend"
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "coverage": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "open coverage/apps/backend/lcov-report/index.html"
+      }
     }
   },
   "tags": []
