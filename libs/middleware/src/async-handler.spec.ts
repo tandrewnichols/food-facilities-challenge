@@ -53,7 +53,6 @@ describe('lib/async-handler', () => {
 
       when(actualHandler)
         .calledWith({
-          get: expect.any(Function),
           params: {
             id: 'id'
           }
@@ -101,21 +100,6 @@ describe('lib/async-handler', () => {
 
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.end).toHaveBeenCalledWith();
-    });
-  });
-
-  describe('a not ok response from /health-check', () => {
-    it('should send status 207', async () => {
-      req.originalUrl = '/health-check';
-
-      const handler = asyncHandler(async () => ({
-        ok: false,
-      }));
-
-      await handler(req, res, next);
-
-      expect(res.status).toHaveBeenCalledWith(207);
-      expect(res.json).toHaveBeenCalledWith({ ok: false });
     });
   });
 

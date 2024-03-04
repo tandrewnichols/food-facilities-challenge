@@ -24,12 +24,8 @@ export const asyncHandler = <ResponseType = any>(fn: AsyncRequestHandler<typeof 
 
     if (isObjectSchema(schema)) {
       // Always add req.get to the schema so that we can access the trace-id in axios calls
-      const newReq: z.infer<typeof schema> = schema.parse({
-        body: req.body,
-        params: req.params,
-        query: req.query,
-      });
-      data = await fn({ ...req, ...newReq }, res, fakeNext);
+      const newReq: z.infer<typeof schema> = schema.parse(req);
+      data = await fn(newReq, res, fakeNext);
     } else {
       data = await fn(req, res, fakeNext);
     }
