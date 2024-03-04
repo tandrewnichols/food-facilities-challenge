@@ -8,6 +8,7 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "rootDir": ".",
         "outputPath": "dist/libs/api",
         "main": "libs/api/src/index.ts",
         "tsConfig": "libs/api/tsconfig.lib.json",

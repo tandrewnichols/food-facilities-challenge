@@ -20,9 +20,9 @@
       "@api/*": ["libs/api/src/*"],
       "@components/*": ["libs/components/src/*"],
       "@db/*": ["libs/db/src/*"],
-      "@middleware/*": ["libs/middleware/src/*"],
       "@hooks/*": ["libs/hooks/src/*"],
       "@logger/*": ["libs/logger/src/*"],
+      "@middleware/*": ["libs/middleware/src/*"],
       "@sharedTypes/*": ["libs/types/src/*"],
       "@tailwind/*": ["libs/tailwind/src/*"],
       "@utils/*": ["libs/utils/src/*"]

@@ -8,7 +8,8 @@
     "test": "nx run-many --target=test -- --runInBand --passWithNoTests",
     "lint": "nx run-many --target=lint",
     "ci": "npm run lint && npm test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker": "nx build frontend && nx build backend && docker compose up"
   },
   "private": true,
   "dependencies": {

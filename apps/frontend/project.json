@@ -4,6 +4,20 @@
   "sourceRoot": "apps/frontend",
   "projectType": "application",
   "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "output": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "rootDir": ".",
+        "outputPath": "dist/{projectRoot}"
+      },
+      "configurations": {
+        "production": {
+          "generateLockFile": true
+        }
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
