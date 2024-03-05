@@ -4,10 +4,9 @@ import { useEffect, useState, useMemo } from 'react';
 import TextInput from '@components/input/text';
 import Dropdown from '@components/dropdown/dropdown';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { PermitStatus } from '@sharedTypes/models';
+import { PermitStatus, SearchResponse  } from '@sharedTypes/models';
 import { SelectItem } from '@sharedTypes/components';
 import { useSearch } from '@hooks/search';
-import { SearchResponse } from '@sharedTypes/models';
 
 interface Props {
   setResults: (results: SearchResponse[]) => void;

@@ -12,7 +12,8 @@ import debounce from 'lodash/debounce';
 const wait = (millis: number) => new Promise((resolve) => setTimeout(resolve, millis));
 
 describe('search', () => {
-  let Component : React.FC;
+  let Component: React.FC;
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const InnerComponent = (props: any) => <div />;
 
   describe('useSearch', () => {
@@ -32,13 +33,13 @@ describe('search', () => {
       beforeEach(() => {
         when(api.get)
           .calledWith('/search/suffix', { params: { foo: 'bar' }})
-          .mockResolvedValue({ data: ['foo', 'bar'] });
+          .mockResolvedValue({ data: ['foo', 'bar']});
       });
 
       it('should call the api', async () => {
         const component = shallow(<Component />);
 
-        expect(component).toHaveProp({ results: [] });
+        expect(component).toHaveProp({ results: []});
 
         component.prop('performSearch')({ foo: 'bar' });
 
@@ -47,7 +48,7 @@ describe('search', () => {
         await wait(0);
 
         expect(component).toHaveProp({ pending: false });
-        expect(component).toHaveProp({ results: ['foo', 'bar'] });
+        expect(component).toHaveProp({ results: ['foo', 'bar']});
       });
     });
 

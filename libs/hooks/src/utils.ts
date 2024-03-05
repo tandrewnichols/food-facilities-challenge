@@ -11,7 +11,7 @@ import {
 import merge from 'lodash/merge';
 import { OptionalCallbackFn, VoidFn } from '@sharedTypes/functions';
 
-export function useHover(initialState = false) : [boolean, MouseEventHandler, MouseEventHandler] {
+export function useHover(initialState = false): [boolean, MouseEventHandler, MouseEventHandler] {
   const [hovering, setHover] = useState(initialState);
 
   return [
@@ -21,7 +21,7 @@ export function useHover(initialState = false) : [boolean, MouseEventHandler, Mo
   ];
 }
 
-export function useToggle(initialState = false) : [
+export function useToggle(initialState = false): [
   boolean,
   VoidFn,
   VoidFn,
@@ -77,7 +77,7 @@ export function useInOutTransition(enterTime?: number, exitTime?: number): InOut
 
   const isMounted = useIsMounted();
 
-  const startEntering = (afterEffect? : () => void) => {
+  const startEntering = (afterEffect?: () => void) => {
     startEnteringRaw();
 
     if (enteringTimeout) {
@@ -150,7 +150,7 @@ export function useUnsavedChanges(isDirty: boolean) {
 
 /* useEffect that handles aborting in cleanup */
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-export function useAbortableEffect(fn: (s: AbortSignal) => Promise<void>, deps : unknown[]) {
+export function useAbortableEffect(fn: (s: AbortSignal) => Promise<void>, deps: unknown[]) {
   useEffect(() => {
     const controller = new AbortController();
 

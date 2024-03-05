@@ -1,4 +1,4 @@
-import * as path from 'path'
+import * as path from 'path';
 import fs from 'fs/promises';
 import sortBy from 'lodash/sortBy';
 
@@ -16,7 +16,7 @@ const drizzleRoot = path.resolve(__dirname, '../drizzle');
 
   const contents = await Promise.all(
     sortBy(files, 'name').map((file) => fs.readFile(`${ drizzleRoot }/${ file.name }`, { encoding: 'utf8' }))
-  )
+  );
 
   const finalSql = contents.join(';');
 

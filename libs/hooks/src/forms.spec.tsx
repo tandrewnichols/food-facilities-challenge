@@ -10,7 +10,8 @@ jest.mock('react', () => ({
 }));
 
 describe('forms', () => {
-  let Component : React.FC;
+  let Component: React.FC;
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const InnerComponent = (props: any) => <div />;
 
   describe('useFieldState', () => {
@@ -50,18 +51,18 @@ describe('forms', () => {
   });
 
   describe('useArrowSelection', () => {
-    let onSelect : jest.Mock;
-    let close : jest.Mock;
-    let preventDefault : jest.Mock;
-    let useEffectIndex : () => void;
-    let useEffectSelect : () => void;
+    let onSelect: jest.Mock;
+    let close: jest.Mock;
+    let preventDefault: jest.Mock;
+    let useEffectIndex: () => void;
+    let useEffectSelect: () => void;
 
     beforeEach(() => {
       onSelect = jest.fn();
       close = jest.fn();
       preventDefault = jest.fn();
 
-      when(useEffect as jest.Mock).mockImplementation((fn : () => void, deps : string[] | string[][]) => {
+      when(useEffect as jest.Mock).mockImplementation((fn: () => void, deps: string[] | string[][]) => {
         if (Array.isArray(deps[0])) {
           useEffectIndex = fn;
         } else {
@@ -131,7 +132,7 @@ describe('forms', () => {
       component.prop('handleArrows')({ key: Keys.ESC, preventDefault } as unknown as KeyboardEvent);
       expect(close).toHaveBeenCalled();
 
-      component.setProps({ list: ['d', 'e', 'f'] });
+      component.setProps({ list: ['d', 'e', 'f']});
       useEffectIndex();
       expect(component).toHaveProp({ index: -1 });
     });

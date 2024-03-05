@@ -9,6 +9,7 @@ const getConnection = (database: string) =>
     port: Number(process.env.DB_PORT) || 5432,
   });
 
+/* eslint-disable no-console */
 (async () => {
   let sql = getConnection('postgres');
 
@@ -40,3 +41,4 @@ const getConnection = (database: string) =>
 
   await sql.end();
 })();
+/* eslint-enable no-console */

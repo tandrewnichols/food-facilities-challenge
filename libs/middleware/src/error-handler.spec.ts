@@ -1,11 +1,10 @@
 import { handleError } from './error-handler';
-import { HttpStatusCode } from 'axios';
+import { HttpStatusCode, AxiosError  } from 'axios';
 import createError from 'http-errors';
 import z from 'zod';
 import { Logger } from 'winston';
 import { Request, Response, NextFunction } from 'express';
 import { formatZodError } from '@utils/zod';
-import { AxiosError } from 'axios';
 
 describe('The Error Handler', () => {
   let req: Request;

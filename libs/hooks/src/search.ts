@@ -4,7 +4,7 @@ import { AxiosRequestConfig } from 'axios';
 import api from '@api/api';
 
 type SearchReturn<T> = [
-  (params: AxiosRequestConfig["params"]) => void,
+  (params: AxiosRequestConfig['params']) => void,
   T[],
   boolean,
   Error | undefined
@@ -19,7 +19,7 @@ export const useSearch = <T>(suffix: string): SearchReturn<T> => {
   const [pending, setPending] = useState<boolean>(false);
   const [error, setError] = useState<Error>();
 
-  const debounceChange = useMemo(() => debounce(async (params: AxiosRequestConfig["params"]) => {
+  const debounceChange = useMemo(() => debounce(async (params: AxiosRequestConfig['params']) => {
     setPending(true);
     try {
       const { data: results } = await api.get<T[]>(`/search/${ suffix }`, { params });

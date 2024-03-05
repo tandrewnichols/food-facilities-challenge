@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef, KeyboardEvent, MouseEvent } from 'react';
-import { SelectItem } from '@sharedTypes/components';
+import { SelectItem, Keys } from '@sharedTypes/components';
 import useOnClickOutside from 'use-onclickoutside';
 import { useToggle } from '@hooks/utils';
-import { Keys } from '@sharedTypes/components';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';

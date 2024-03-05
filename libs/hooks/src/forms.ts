@@ -43,7 +43,7 @@ export function useArrowSelection<T>(list: SelectItem<T>[], onSelect: (selected:
   }, [selected]);
 
   const handleArrows = useCallback(
-    (e : KeyboardEvent) => {
+    (e: KeyboardEvent) => {
       if (e.key === Keys.ARROW_UP || (e.key === Keys.TAB && e.shiftKey)) {
         e.preventDefault();
         // up arrow

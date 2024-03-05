@@ -19,8 +19,9 @@ jest.mock('react', () => ({
 const wait = (millis: number) => new Promise((resolve) => setTimeout(resolve, millis));
 
 describe('utils', () => {
-  let Component : React.FC;
-  const InnerComponent = (props) => <div />;
+  let Component: React.FC;
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  const InnerComponent = (props: any) => <div />;
 
   describe('useHover', () => {
     beforeEach(() => {
@@ -147,7 +148,7 @@ describe('utils', () => {
   });
 
   describe('useIsMounted', () => {
-    let cleanupFunc : () => void;
+    let cleanupFunc: () => void;
 
     beforeEach(() => {
       (useEffect as jest.Mock).mockImplementation((fn) => {
@@ -174,16 +175,16 @@ describe('utils', () => {
   });
 
   describe('useInOutTransition', () => {
-    let entering : boolean;
-    let startEntering : (cb : () => void) => void;
-    let stopEntering : () => void;
-    let exiting : boolean;
-    let startExiting : (cb : () => void) => void;
-    let stopExiting : () => void;
-    let entered : boolean;
-    let setEntered : () => void;
-    let unsetEntered : () => void;
-    let afterEffect : () => void;
+    let entering: boolean;
+    let startEntering: (cb: () => void) => void;
+    let stopEntering: () => void;
+    let exiting: boolean;
+    let startExiting: (cb: () => void) => void;
+    let stopExiting: () => void;
+    let entered: boolean;
+    let setEntered: () => void;
+    let unsetEntered: () => void;
+    let afterEffect: () => void;
 
     beforeEach(() => {
       jest.spyOn(global, 'clearTimeout');
@@ -347,8 +348,8 @@ describe('utils', () => {
   });
 
   describe('useUnsavedChanges', () => {
-    let preventDefault : jest.Mock;
-    let cleanupFunc : () => void;
+    let preventDefault: jest.Mock;
+    let cleanupFunc: () => void;
 
     beforeEach(() => {
       global.window = {} as Window & typeof globalThis;
@@ -372,7 +373,7 @@ describe('utils', () => {
 
       it('should register an onbeforeunload handler', () => {
         shallow(<Component />);
-        const onbeforeunload = window.onbeforeunload as (e : object) => void;
+        const onbeforeunload = window.onbeforeunload as (e: object) => void;
         expect(onbeforeunload).toEqual(expect.any(Function));
         expect(onbeforeunload({ preventDefault })).toEqual('You have unsaved changes');
 
@@ -401,8 +402,8 @@ describe('utils', () => {
   });
 
   describe('useAbortableEffect', () => {
-    let effectFn : () => () => void;
-    let fn : jest.Mock;
+    let effectFn: () => () => void;
+    let fn: jest.Mock;
 
     beforeEach(() => {
       fn = jest.fn();
@@ -434,8 +435,8 @@ describe('utils', () => {
   });
 
   describe('useRerenderEffect', () => {
-    let effectFn : () => void;
-    let fn : jest.Mock;
+    let effectFn: () => void;
+    let fn: jest.Mock;
 
     beforeEach(() => {
       fn = jest.fn();
