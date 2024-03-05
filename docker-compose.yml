@@ -7,8 +7,13 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+      # - ./libs/db/scripts/create-db.sh:/docker-entrypoint-initdb.d/01-create-db.sh
+      - ./libs/db/scripts/create-extensions.sh:/docker-entrypoint-initdb.d/02-create-extensions.sh
+      - ./libs/db/scripts/run-migrations.sql:/docker-entrypoint-initdb.d/03-migrate.sql
+      - ./libs/db/data/Mobile_Food_Facility_Permit.sql:/docker-entrypoint-initdb.d/04-load-data.sql
     environment:
       POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
 
   frontend:
     build:
@@ -32,11 +37,11 @@ services:
       LOG_LEVEL: warn
       EXPOSE_DEBUG_INFO: true
       API_PORT: 4000
-      DB_USER: andrew
-      DB_PASSWORD: waterfast
-      DB_NAME: radai
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
       DB_PORT: 5432
-      DB_HOST: localhost
+      DB_HOST: postgres
     volumes:
       - ./:/app
     depends_on:

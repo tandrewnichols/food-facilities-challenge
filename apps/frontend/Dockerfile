@@ -11,6 +11,5 @@ WORKDIR /usr/src/app
 RUN npm ci --omit=dev --ignore-scripts
 ENV NEXT_TELEMETRY_DISABLED 1
 EXPOSE 3000
-ENV API_PORT 3000
 ENV HOSTNAME "0.0.0.0"
 CMD ["dumb-init", "node", "/usr/src/app/.next/standalone/apps/frontend/server.js"]

@@ -10,4 +10,5 @@ WORKDIR /usr/src/app
 RUN npm ci --omit=dev --ignore-scripts
 
 EXPOSE 4000
+ENV HOSTNAME "0.0.0.0"
 CMD ["dumb-init", "node", "./main.js"]

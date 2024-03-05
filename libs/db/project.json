@@ -63,6 +63,22 @@
           ]
         }
       }
+    },
+    "copy-migrations": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "dev",
+      "options": {
+        "cwd": "libs/db",
+        "root": "libs/db",
+        "parallel": false
+      },
+      "configurations": {
+        "dev": {
+          "commands": [
+            "npx tsx src/copy-migrations.ts"
+          ]
+        }
+      }
     }
   },
   "tags": []

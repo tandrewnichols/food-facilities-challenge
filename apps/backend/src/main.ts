@@ -4,7 +4,7 @@ import logger from '@logger/logger';
 const port = process.env.API_PORT || 4000;
 
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  logger.info(`Listening at http://localhost:${port}/api`);
 });
 
 server.on('error', console.error);
