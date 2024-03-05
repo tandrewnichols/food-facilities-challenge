@@ -1,8 +1,8 @@
-import { Facility, Location, Permit, PermitStatus } from '@sharedTypes/models';
+import { Facility as FacilityObj, Location, Permit, PermitStatus } from '@sharedTypes/models';
 import { format } from 'date-fns';
 
 interface Props {
-  facility: Facility;
+  facility: FacilityObj;
   location: Location;
   permit: Permit;
 }
