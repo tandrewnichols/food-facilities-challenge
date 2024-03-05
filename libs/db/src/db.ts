@@ -10,4 +10,4 @@ export const client = postgres({
   port: Number(process.env.DB_PORT) || 5432,
 });
 
-export const db = drizzle(client, { schema, logger: true });
+export const db = drizzle(client, { schema });

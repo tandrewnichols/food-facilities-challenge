@@ -75,6 +75,7 @@ export default function TextInput({
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={onChange}
+        data-test={`${ name }-input`}
       />
       {icon && (
         <div className="absolute pointer-events-none row-y inset-y-0 right-0 pr-4">

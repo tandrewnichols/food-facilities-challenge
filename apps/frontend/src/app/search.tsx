@@ -25,7 +25,7 @@ export default function SearchWrapper() {
       <div className="flex w-full justify-end items-center space-x-2">
         <div className="font-bold">Mode:</div>
         {Object.entries(SearchMode).map(([key, val]: [string, SearchMode]) => (
-          <button type="button" onClick={() => setMode(val)} key={val} className={clsx({ 'text-secondary': mode === val })}>
+          <button type="button" onClick={() => setMode(val)} key={val} className={clsx({ 'text-secondary': mode === val })} data-test={`${ val.toLowerCase() }-mode`}>
             {val}
           </button>
         ))}

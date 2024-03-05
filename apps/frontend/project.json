@@ -33,6 +33,20 @@
         }
       }
     },
+    "e2e": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "dev",
+      "options": {
+        "cwd": ".",
+        "root": ".",
+        "parallel": false
+      },
+      "configurations": {
+        "dev": {
+          "command": "npx tsx scripts/start-cypress.ts"
+        }
+      }
+    },
     "coverage": {
       "executor": "nx:run-commands",
       "options": {

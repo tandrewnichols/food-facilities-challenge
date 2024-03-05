@@ -20,20 +20,20 @@ export default function Facility({ facility, location, permit }: Props) {
     <div className="border border-gray-300 rounded w-full p-8 space-y-4">
       <div className="flex flex-col items-center">
         <div>
-          <span className="font-bold">{ facility.applicant } </span>
-          {facility.type && <span>({ facility.type })</span>}
+          <span className="font-bold" data-test="applicant" >{ facility.applicant } </span>
+          {facility.type && <span data-test="type">({ facility.type })</span>}
         </div>
-        <div>{ location.address }</div>
+        <div data-test="address">{ location.address }</div>
       </div>
       <div className="flex flex-row items-start space-x-10">
         <div>
-          <div className="whitespace-nowrap">Permit: { permit.permit }</div>
-          <div className="whitespace-nowrap">Status: <span className={permit.status ? statusClasses[permit.status] : ''}>{ permit.status }</span></div>
-          {permit.approvedAt && <div className="whitespace-nowrap">Approved: { format(new Date(permit.approvedAt), 'MMM dd, yyyy') }</div>}
+          <div className="whitespace-nowrap" data-test="permit">Permit: { permit.permit }</div>
+          <div className="whitespace-nowrap">Status: <span className={permit.status ? statusClasses[permit.status] : ''} data-test="status">{ permit.status }</span></div>
+          {permit.approvedAt && <div className="whitespace-nowrap" data-test="approved">Approved: { format(new Date(permit.approvedAt), 'MMM dd, yyyy') }</div>}
         </div>
         <div>
-          {location.description && <div>Location: {location.description}</div>}
-          {location.foodItems && <div>Food Items: {location.foodItems}</div>}
+          {location.description && <div data-test="location-description">Location: {location.description}</div>}
+          {location.foodItems && <div data-test="food-items">Food Items: {location.foodItems}</div>}
         </div>
       </div>
     </div>

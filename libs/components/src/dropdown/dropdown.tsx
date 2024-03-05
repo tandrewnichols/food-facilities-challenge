@@ -74,6 +74,7 @@ export default function Dropdown<T>({ name, items, value, onSelect, icon, placeh
         onKeyDown={onKeyDown}
         onClick={onClick}
         className="flex justify-center items-center content-center rounded py-2.5 px-4 cursor-pointer border border-gray-300"
+        data-test={`${ name }-dropdown`}
       >
         {icon && (
           <Icon icon={icon} className="mr-0.5" />
