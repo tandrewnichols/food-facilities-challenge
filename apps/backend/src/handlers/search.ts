@@ -27,7 +27,7 @@ export const searchApplicantSchema = baseSchema.extend({
   params: z.object({}),
   body: z.object({}),
   query: z.object({
-    query: z.string(),
+    query: z.string().min(3),
     status: z.nativeEnum(PermitStatus).optional(),
   })
 });
@@ -61,7 +61,7 @@ export const searchAddressSchema = baseSchema.extend({
   params: z.object({}),
   body: z.object({}),
   query: z.object({
-    query: z.string(),
+    query: z.string().min(3),
   })
 });
 
